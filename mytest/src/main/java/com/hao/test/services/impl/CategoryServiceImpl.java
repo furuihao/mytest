@@ -35,7 +35,7 @@ public class CategoryServiceImpl implements CategoryService {
 	public CategoryInfo getById(Long id) throws ServiceException {
 		CategoryInfo info = categoryDao.getById(id, CategoryInfo.class);
 		if (info == null)
-			throw new ServiceException("404", "没有找到对应记录123");
+			throw new ServiceException("404", "没有找到对应记录123456");
 		return info;
 	}
 
