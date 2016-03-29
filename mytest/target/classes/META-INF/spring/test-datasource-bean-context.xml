@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+
+
+
+	<!-- 导航数据源配置 -->
+	<bean id="testDataSource" parent="parentDataSource">
+		<property name="jdbcUrl" value="${hao.database.url}"></property>
+		<!-- 用户名 -->
+		<property name="user" value="${hao.database.userName}" />
+		<!-- 密码 -->
+		<property name="password" value="${hao.database.password}" />
+		<!--连接池中保留的最小连接数。 -->
+		<property name="minPoolSize" value="${hao.dataSource.minPoolSize}" />
+		<!--连接池中保留的最大连接数。Default: 15 -->
+		<property name="maxPoolSize" value="${hao.dataSource.maxPoolSize}" />
+		<!--连接池中初始化时的连接数。 -->
+		<property name="initialPoolSize" value="${hao.dataSource.initialPoolSize}" />
+	</bean>
+
+	<!-- 导航hibernate SessionFactory -->
+	<bean id="testSessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource" ref="testDataSource" />
+		<property name="packagesToScan">
+			<list>
+				<value>com.hao.test.models</value>
+			</list>
+		</property>
+
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">${hibernate.dialect}</prop>
+				<!-- 是否显示sql语句 -->
+				<prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
+				<prop key="hibernate.format_sql">${hibernate.format_sql}</prop>
+				<!-- 是否自动创建表，是: update 否:none -->
+				<prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop>
+			</props>
+		</property>
+	</bean>
+
+
+
+
+</beans>

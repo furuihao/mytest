@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<!-- memcache -->
+
+	<!-- <bean name="defaultMemcachedClient" class="com.google.code.ssm.CacheFactory">
+		<property name="cacheClientFactory">
+			<bean name="cacheClientFactory" class="com.google.code.ssm.providers.xmemcached.MemcacheClientFactoryImpl" />
+
+		</property>
+		<property name="addressProvider">
+			<bean class="com.google.code.ssm.config.DefaultAddressProvider">
+				<property name="address" value="${memcache.ip}" />
+			</bean>
+		</property>
+		<property name="configuration">
+			<bean class="com.google.code.ssm.providers.CacheConfiguration">
+				<property name="consistentHashing" value="true" />
+			</bean>
+		</property>
+
+	</bean> -->
+
+
+	<bean id="parentDataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+		<!-- 驱动包 -->
+		<property name="driverClass" value="${dataSource.driverClass}" />
+		<!--c3p0将建一张名为Test的空表，并使用其自带的查询语句进行测试。如果定义了这个参数那么 属性preferredTestQuery将被忽略。你不能在这张Test表上进行任何操 作，它将只供c3p0测试 使用。Default: null 
+			<property name="automaticTestTable" value="null" /> -->
+		<!--最大空闲时间,X秒内未使用则连接被丢弃。若为0则永不丢弃。Default: 0 -->
+		<property name="maxIdleTime" value="${dataSource.maxIdleTime}" />
+		<property name="preferredTestQuery" value="select 1" />
+		<!--每60秒检查所有连接池中的空闲连接。Default: 0 -->
+		<property name="idleConnectionTestPeriod" value="60" />
+		<!--定义在从数据库获取新连接失败后重复尝试的次数。Default: 30 -->
+		<property name="acquireRetryAttempts" value="100" />
+		<!--当连接池中的连接耗尽的时候c3p0一次同时获取的连接数。Default: 3 -->
+		<property name="acquireIncrement" value="5" />
+		<property name="breakAfterAcquireFailure" value="true" />
+		<!--因性能消耗大请只在需要的时候使用它。如果设为true那么在每个 connection提交的 时候都将校验其有效性。建议使用 idleConnectionTestPeriod或automaticTestTable 等方法来提升连接测试的性能。Default: 
+			false -->
+		<property name="testConnectionOnCheckout" value="false" />
+	</bean>
+
+	
+
+
+
+
+</beans>
