@@ -1,4 +1,4 @@
-package com.hao.test.services.impl;
+﻿package com.hao.test.services.impl;
 
 import java.util.List;
 
@@ -35,7 +35,7 @@ public class CategoryServiceImpl implements CategoryService {
 	public CategoryInfo getById(Long id) throws ServiceException {
 		CategoryInfo info = categoryDao.getById(id, CategoryInfo.class);
 		if (info == null)
-			throw new ServiceException("404", "没有找到对应记录");
+			throw new ServiceException("404", "没有找到对应记录123");
 		return info;
 	}
 
