@@ -23,7 +23,7 @@ public class test {
 
 	@AfterClass
 	public static void afterClass() {
-		sessionFactory.close();
+		sessionFactory.close();  
 	}
 
 	@Test
