@@ -9,7 +9,7 @@ import com.fqq.common.dto.DataTransferObject;
 
 public abstract class AbstractTesttDao<T extends DataTransferObject> extends
 		AbstractDataAccessObject<T> {
-	@Resource(name = "testSessionFactory")
+	@Resource(name = "testSessionFactory")  
 	public void setSuperSessionFactory(SessionFactory sessionFactory) {
 		super.setSessionFactory(sessionFactory);
 	}
