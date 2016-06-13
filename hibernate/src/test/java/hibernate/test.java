@@ -30,7 +30,7 @@ public class test {
 	public void testStudent() {
 		StudentPK pk = new StudentPK();
 		pk.setId(1);
-		pk.setName("zhangsan");
+		pk.setName("zhangsan5555");
 		Student s = new Student();
 		// s.setId(1);
 		// s.setName("zhangsan");
