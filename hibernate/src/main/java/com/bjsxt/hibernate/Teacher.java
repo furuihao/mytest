@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.IdClass;
 
 @Entity
-@IdClass(TeacherPK.class)
+// @IdClass(TeacherPK.class)
 public class Teacher {
 	private int id;
 	private String name;
@@ -15,7 +15,7 @@ public class Teacher {
 	private String title;
 
 	@Id
-//	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public int getId() {
 		return id;
 	}
@@ -24,7 +24,6 @@ public class Teacher {
 		this.id = id;
 	}
 
-	@Id
 	public String getName() {
 		return name;
 	}

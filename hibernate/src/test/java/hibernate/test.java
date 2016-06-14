@@ -10,7 +10,6 @@ import com.bjsxt.hibernate.Classes;
 import com.bjsxt.hibernate.Student;
 import com.bjsxt.hibernate.StudentPK;
 import com.bjsxt.hibernate.Teacher;
-import com.bjsxt.hibernate.TeacherPK;
 import com.bjsxt.hibernate.util.HibernateUtil;
 
 public class test {
@@ -23,7 +22,7 @@ public class test {
 
 	@AfterClass
 	public static void afterClass() {
-		sessionFactory.close();  
+		sessionFactory.close();
 	}
 
 	@Test
@@ -46,13 +45,13 @@ public class test {
 
 	@Test
 	public void testTeacher() {
-//		TeacherPK pk = new TeacherPK();
-//		pk.setId(1);
-//		pk.setName("t2");
+		// TeacherPK pk = new TeacherPK();
+		// pk.setId(1);
+		// pk.setName("t2");
 		Teacher t = new Teacher();
-		 t.setId(1);
-		 t.setName("t1");
-//		t.setPk(pk);
+		t.setId(1);
+		t.setName("t1");
+		// t.setPk(pk);
 		t.setTitle("middle");
 
 		// SessionFactory sessionFactory = new
@@ -61,6 +60,42 @@ public class test {
 		Session session = sessionFactory.getCurrentSession();
 		session.beginTransaction();
 		session.save(t);
+		System.out.println(t.getId());
+		session.getTransaction().commit();
+	}
+
+	@Test
+	public void testDelete() {
+		Teacher t = new Teacher();
+		t.setId(1);
+		// t.setName("t1");
+		// // t.setPk(pk);
+		// t.setTitle("middle");
+
+		// SessionFactory sessionFactory = new
+		// AnnotationConfiguration().configure().buildSessionFactory();
+		// SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+		Session session = sessionFactory.getCurrentSession();
+		session.beginTransaction();
+		session.delete(t);
+		session.getTransaction().commit();
+	}
+
+	@Test
+	public void testLoad() {
+		Session session = sessionFactory.getCurrentSession();
+		session.beginTransaction();
+		Teacher t = (Teacher) session.load(Teacher.class, 2);
+		System.out.println(t.getName());
+		session.getTransaction().commit();
+	}
+
+	@Test
+	public void testGet() {
+		Session session = sessionFactory.getCurrentSession();
+		session.beginTransaction();
+		Teacher t = (Teacher) session.get(Teacher.class, 2);
+		System.out.println(t.getName());
 		session.getTransaction().commit();
 	}
 
@@ -77,7 +112,36 @@ public class test {
 		s.getTransaction().commit();
 	}
 
+	@Test
+	public void testUpdate() {
+		Session s = sessionFactory.openSession();
+		s.beginTransaction();
+		Classes c = (Classes) s.get(Classes.class, 1);
+		s.update(c);
+		c.setName("初3");
+		s.getTransaction().commit();
+		
+//		c.setName("初3");
+//		
+//		Session s2 = sessionFactory.openSession();
+//		s2.beginTransaction();
+//		s2.update(c);
+//		s2.getTransaction().commit();
+	}
+
+	@Test
+	public void testUpdate2() {
+		Classes c3 = new Classes();
+		c3.setId(1);
+		c3.setName("初1");
+		c3.setNo("8");
+		Session s2 = sessionFactory.openSession();
+		s2.beginTransaction();
+		s2.update(c3);
+		s2.getTransaction().commit();
+	}
+
 	public static void main(String[] args) {
-		beforeClass();
+		// beforeClass();
 	}
 }
