@@ -30,11 +30,13 @@
 		<property name="format_sql">true</property>
 
 		<!-- Drop and re-create the database schema on startup -->
-		<property name="hbm2ddl.auto">update</property>
+		<!-- <property name="hbm2ddl.auto">create</property> -->
 
 		<mapping resource="com/bjsxt/hibernate/models/Student.hbm.xml" />
 		<mapping class="com.bjsxt.hibernate.models.Teacher" />
 		<mapping class="com.bjsxt.hibernate.models.Classes" />
+		<mapping class="com.bjsxt.hibernate.models.Husband" />
+		<mapping class="com.bjsxt.hibernate.models.Wife" />
 	</session-factory>
 
 </hibernate-configuration>
