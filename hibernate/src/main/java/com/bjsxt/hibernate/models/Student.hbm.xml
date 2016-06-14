@@ -4,9 +4,9 @@
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-	<class name="com.bjsxt.hibernate.Student">
+	<class name="com.bjsxt.hibernate.models.Student">
 		<!-- <id name="id" > <generator class="identity"></generator> </id> -->
-		<composite-id name="pk" class="com.bjsxt.hibernate.StudentPK">
+		<composite-id name="pk" class="com.bjsxt.hibernate.models.StudentPK">
 			<key-property name="id" />
 			<key-property name="name" />
 		</composite-id>

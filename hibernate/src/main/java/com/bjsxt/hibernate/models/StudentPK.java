@@ -1,7 +1,6 @@
-package com.bjsxt.hibernate;
+package com.bjsxt.hibernate.models;
 
-//@Embeddable
-public class TeacherPK implements java.io.Serializable {
+public class StudentPK implements java.io.Serializable {
 	/**
 	 * 
 	 */
@@ -27,8 +26,8 @@ public class TeacherPK implements java.io.Serializable {
 
 	@Override
 	public boolean equals(Object obj) {
-		if (obj instanceof TeacherPK) {
-			TeacherPK pk = (TeacherPK) obj;
+		if (obj instanceof StudentPK) {
+			StudentPK pk = (StudentPK) obj;
 			if (this.id == pk.getId() && this.name.equals(pk.getName()))
 				return true;
 		}

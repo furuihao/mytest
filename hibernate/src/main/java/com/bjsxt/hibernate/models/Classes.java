@@ -1,4 +1,4 @@
-package com.bjsxt.hibernate;
+package com.bjsxt.hibernate.models;
 
 import javax.persistence.Entity;    
 import javax.persistence.Id;

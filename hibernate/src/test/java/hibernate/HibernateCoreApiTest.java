@@ -6,10 +6,10 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import com.bjsxt.hibernate.Classes;
-import com.bjsxt.hibernate.Student;
-import com.bjsxt.hibernate.StudentPK;
-import com.bjsxt.hibernate.Teacher;
+import com.bjsxt.hibernate.models.Classes;
+import com.bjsxt.hibernate.models.Student;
+import com.bjsxt.hibernate.models.StudentPK;
+import com.bjsxt.hibernate.models.Teacher;
 import com.bjsxt.hibernate.util.HibernateUtil;
 
 public class HibernateCoreApiTest {

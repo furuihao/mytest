@@ -1,4 +1,4 @@
-package com.bjsxt.hibernate;
+package com.bjsxt.hibernate.models;
 
 public class Student  {
 	private StudentPK pk;
